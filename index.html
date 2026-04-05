@@ -727,12 +727,17 @@
 Chart.defaults.font.family = "'Source Sans 3', sans-serif";
 Chart.defaults.font.size = 12;
 
-const PREMIER_C     = 'rgba(26,58,92,0.85)';
-const PERSONALIZA_C = 'rgba(139,69,19,0.85)';
-const WIN_C         = 'rgba(26,107,46,0.85)';
-const LOSS_C        = 'rgba(139,26,26,0.85)';
-const WARN_C        = 'rgba(245,158,11,0.85)';
-const BLUE_C        = 'rgba(59,130,246,0.75)';
+// ── Paleta de alto contraste ──────────────────────────────────────────────
+// Gráfica 1: Esmeralda vs Coral
+const WIN_C   = '#00A86B';   // verde esmeralda — ventajas
+const LOSS_C  = '#E83B3B';   // rojo coral — desventajas
+// Gráfica 2: Azul marino GNP vs Naranja GNP (colores de marca)
+const PREMIER_C     = '#1A3A5C';   // azul marino Premier
+const PERSONALIZA_C = '#D64000';   // naranja GNP Personaliza
+// Gráfica 3: escala de calor por gravedad
+const G3_HIGH   = '#E83B3B';  // 50% — rojo coral (crítico)
+const G3_MED    = '#F57C00';  // 20% — naranja (moderado)
+const G3_LOW    = '#29B6F6';  // 5%  — azul cielo (leve)
 
 // ── Gráfica 1: Balance ventajas vs desventajas ────────────────────────────
 new Chart(document.getElementById('chart-balance'), {
@@ -815,8 +820,8 @@ new Chart(document.getElementById('chart-participaciones'), {
       label: 'Participación adicional (%)',
       data: [50, 50, 50, 50, 50, 20, 20, 20, 20, 5],
       backgroundColor: [
-        LOSS_C, LOSS_C, LOSS_C, LOSS_C, LOSS_C,
-        WARN_C, WARN_C, WARN_C, WARN_C, BLUE_C
+        G3_HIGH, G3_HIGH, G3_HIGH, G3_HIGH, G3_HIGH,
+        G3_MED,  G3_MED,  G3_MED,  G3_MED,  G3_LOW
       ],
       borderRadius: 3,
     }]
